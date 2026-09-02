@@ -1,16 +1,43 @@
-# Security model
+# Security policy
 
-## Non-negotiable guarantees for version 1
+## Reporting a vulnerability
 
-- Mail access is read-only.
-- Permanent deletion is unavailable, even if `DRY_RUN=false` is supplied.
+Do not open a public issue for a suspected vulnerability. Use GitHub's private
+security-advisory reporting flow when it is enabled for this repository. Include the
+affected version, impact, and anonymized reproduction steps. Never attach a real
+mailbox database, exported message, credential, token, address, or message content.
+
+Maintainers should acknowledge a complete report within seven days and coordinate a
+fix and disclosure timeline according to severity. This is a volunteer project and
+does not currently offer a bug bounty.
+
+## Supported versions
+
+Security fixes are applied to the latest `main` branch and the latest published
+release. Older snapshots are not supported.
+
+## Security guarantees
+
 - The API binds to loopback by default.
-- Secrets are never accepted through source-controlled configuration.
-- Logs must not contain message bodies, subjects, addresses, tokens, or attachment names.
+- Credentials and OAuth token caches use the operating-system credential manager.
+- Repository configuration never accepts or contains real mailbox secrets.
+- Scans are read-only and use IMAP peek operations.
+- Qwen cannot directly call mailbox, filesystem, archive, unsubscribe, or network
+  mutation tools.
+- Normal deletion moves explicitly selected messages to the provider Trash folder.
+- Permanent removal is isolated to **Empty Trash**, shows the affected count, and
+  requires typed confirmation.
+- Logs must not contain message bodies, subjects, addresses, tokens, or attachment
+  names.
 
 ## Future action lifecycle
 
-Actions progress through `proposed`, `approved`, `executed`, and `verified` states. Only explicitly selected messages can be moved to the provider Trash folder, and the app exposes no permanent expunge operation. Sensitive mail, replies, starred mail, messages with protected attachments, and low-confidence classifications are excluded from automatic deletion.
+Actions progress through `proposed`, `approved`, `executed`, and `verified` states.
+Only explicitly selected messages can be moved to the provider Trash folder.
+Sensitive mail, replies, starred mail, messages with protected attachments, and
+low-confidence classifications are excluded from automatic deletion. Empty Trash is
+a separate, deliberate operation and is never initiated by the model or background
+filing agent.
 
 ## Archive safety
 

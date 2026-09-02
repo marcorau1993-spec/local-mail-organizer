@@ -1,0 +1,67 @@
+name: Bug report
+description: Report a reproducible problem without exposing mailbox data.
+title: "[Bug]: "
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve Local Mail Organizer.
+        Never include real email addresses, subjects, message bodies, credentials, tokens, local paths, or screenshots containing private mailbox data.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Account setup / provider
+        - Full mailbox scan
+        - AI analysis
+        - Cleanup action
+        - Filing / automation
+        - Archive storage
+        - Spam / phishing review
+        - Web interface
+        - Installation / launcher
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem
+      description: Describe what happened using anonymized example data.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Open ...
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Commit or version
+      placeholder: Git commit hash or release version
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Windows version, Python, Node.js, Ollama model
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I removed all mailbox content, addresses, credentials, tokens, and other personal data.
+          required: true

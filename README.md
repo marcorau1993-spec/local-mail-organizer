@@ -12,6 +12,11 @@ credentials are kept in the operating-system credential manager.
 [![Ollama](https://img.shields.io/badge/AI-Ollama-black)](https://ollama.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+> [!IMPORTANT]
+> This is a local mailbox-management tool, not a replacement for backups, provider
+> security controls, or professional incident response. Test live actions with a
+> non-critical account and review every destructive selection.
+
 ## Why this project exists
 
 Large mailboxes usually contain several different problems at once: newsletters,
@@ -340,6 +345,15 @@ push; never add screenshots containing real addresses or message content.
 The application is under active development. Always keep an independent backup of an
 important mailbox, verify provider behavior with a non-critical account first, and
 review selections before applying live actions.
+
+## Contributing and security
+
+Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a
+pull request and use only synthetic mailbox examples. Community participation follows
+the [Code of Conduct](CODE_OF_CONDUCT.md).
+
+Do not report vulnerabilities in public issues. Follow the private disclosure
+instructions in [docs/SECURITY.md](docs/SECURITY.md).
 
 ## License
 

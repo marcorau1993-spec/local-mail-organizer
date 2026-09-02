@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest a focused improvement for local mailbox management.
+title: "[Feature]: "
+labels: [enhancement, triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Explain the mailbox-management problem without including private mail data.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Privacy and safety considerations
+      description: Describe expected permissions, destructive actions, and data handling.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: This request contains no personal mailbox data or credentials.
+          required: true
